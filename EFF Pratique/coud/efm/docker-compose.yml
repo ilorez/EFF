@@ -1,0 +1,19 @@
+
+version: '3'
+
+services:
+  my_users:
+    build:
+      context: ./g_users
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3000'
+    
+  my_vols:
+    build: 
+      context: ./g_vols
+      dockerfile: Dockerfile   
+    ports:
+      - '4002:4000'
+    depends_on:
+      - my_users
